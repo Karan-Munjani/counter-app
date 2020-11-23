@@ -16,20 +16,20 @@ class Counter extends Component {
     };
 
     render() {
-
+        const { counter, onDel, onIncrement, onDecrement } = this.props;
         // console.log(this.props) 
 
         let classes = this.getClassName();
         return (
             <div>
-                {this.props.counter.children}
+                {counter.children}
 
                 <span className={classes}>
                     {this.formatCount()}
                 </span>
 
                 <button
-                    onClick={() => { this.props.onIncrement(this.props.counter) }}
+                    onClick={() => { onIncrement(counter) }}
                     type="button"
                     className="btn btn-primary m-2">
                     increment
@@ -37,14 +37,14 @@ class Counter extends Component {
 
 
                 <button
-                    onClick={() => (this.props.onDel(this.props.counter.id))} type="button"
+                    onClick={() => (onDel(counter.id))} type="button"
                     className="btn btn-danger m-2" >
                     Delete
                 </button>
 
 
                 <button
-                    onClick={() => (this.props.onDecrement(this.props.counter.value, this.props.counter.id))}
+                    onClick={() => (onDecrement(counter.value, counter.id))}
                     type="button" className="btn btn-secondary m-2" >
                     Decrement
                 </button>
