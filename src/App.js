@@ -31,11 +31,24 @@ class App extends Component {
   handleIncrement = (counter) => {
     const cntrs = [...this.state.counters]; //copying counters array
     const index = cntrs.indexOf(counter);
-    cntrs[index] = { ...counter };
+    cntrs[index] = { ...counter }; //copied counter item passed in function
     cntrs[index].value++;
-    // console.log(this.state.counters[0])
+    // console.log(this.state.counters[0]);
 
     this.setState({ counters: cntrs });
+  };
+
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
+    if (counters[index].value < 0) {
+      counters[index].value = 0;
+    }
+    // console.log(this.state.counters[0]);
+
+    this.setState({ counters: counters });
   };
 
   render() {

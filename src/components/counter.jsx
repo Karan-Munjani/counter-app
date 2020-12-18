@@ -32,55 +32,27 @@ class Counter extends Component {
                     onClick={() => { onIncrement(counter) }}
                     type="button"
                     className="btn btn-primary m-2">
-                    increment
+                    +
                 </button>
 
+                <button
+                    onClick={() => (onDecrement(counter))}
+                    type="button" className="btn btn-secondary m-2" disabled={counter.value === 0}>
+                    -
+                </button>
 
                 <button
                     onClick={() => (onDel(counter.id))} type="button"
                     className="btn btn-danger m-2" >
-                    Delete
+                    x
                 </button>
 
 
-                <button
-                    onClick={() => (onDecrement(counter.value, counter.id))}
-                    type="button" className="btn btn-secondary m-2" >
-                    Decrement
-                </button>
 
 
             </div>
         );
     }
-
-
-
-    constructor(props) {
-        super(props);
-        // var value = this.props.value;
-        // console.log(value)
-        // this.handleIncrement = this.handleIncrement.bind(this)
-    }
-
-
-    // handleDecrement() {
-    //     if (this.state.value !== 0) {
-    //         this.setState({
-    //             value: this.state.value - 1
-    //         })
-    //     }
-    //     else {
-    //         this.setState({
-    //             value: 0
-    //         })
-    //     }
-    // }
-
-
-
-
-
 
 
     // Methods Outside of Render
@@ -92,7 +64,8 @@ class Counter extends Component {
 
     formatCount() {
         const { value } = this.props.counter;
-        return value === 0 ? "ZERO" : value;
+        return value === 0 ? "0" : value;
+
     }
 
 
